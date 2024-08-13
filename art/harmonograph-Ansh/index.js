@@ -1,5 +1,5 @@
 /* 
-  @title: Harmonograph
+  @title: Random Harmonograph
   @author: Ansh Kumar
   @snapshot: 
 */
@@ -11,30 +11,30 @@ setDocDimensions(width, height);
 
 const t = new bt.Turtle();
 
-const e= 2.71828
+const e = 2.71828;
 
-const polylines= t.lines();
+const polylines = t.lines();
 
-const scale = 30 
+const scale = 30;
 
-//start adjusting the values from here
-const p1 = 1;
-const f1 = 1;
-const d1 = 0; 
 
-const p2 = 1;
-const f2 = 1;
-const d2 = 0; 
+//Here you can pass custom values too
+const p1 = bt.randInRange(0, 2 * Math.PI);
+const f1 = bt.randInRange(0.1, 10.1);
+const d1 = bt.randInRange(0, 0.05);
 
-const p3 = 1; 
-const f3 = 1; 
-const d3 = 0; 
+const p2 = bt.randInRange(0, 2 * Math.PI);
+const f2 = bt.randInRange(0.1, 10.1);
+const d2 = bt.randInRange(0, 0.05);
 
-const p4 = 1; 
-const f4 = 1; 
-const d4 = 0; 
-//adjust values till here
+const p3 = bt.randInRange(0, 2 * Math.PI);
+const f3 = bt.randInRange(0.1, 10.1);
+const d3 = bt.randInRange(0, 0.05);
 
+const p4 = bt.randInRange(0, 2 * Math.PI);
+const f4 = bt.randInRange(0.1, 10.1);
+const d4 = bt.randInRange(0, 0.05);
+//Till here
 
 function walk(step) {
     const i = step / 100;
@@ -45,17 +45,17 @@ function walk(step) {
     return step < 10000;
 }
 
-
 let step = 0;
 while (walk(step)) {
     step++;
 }
+
 function centerPolylines(polylines, documentWidth, documentHeight) {
-  const cc = bt.bounds(polylines).cc;
-  bt.translate(polylines, [documentWidth / 2, documentHeight / 2], cc);
+    const cc = bt.bounds(polylines).cc;
+    bt.translate(polylines, [documentWidth / 2, documentHeight / 2], cc);
 }
 
-let final = t.lines()
-centerPolylines(final,width,height)
+let final = t.lines();
+centerPolylines(final, width, height);
 
 drawLines(final);
